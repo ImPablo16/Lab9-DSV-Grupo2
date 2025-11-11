@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio JavaScript - Desarrollo de Software V</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-code"></i>
+                    <div>
+                        <h1>Laboratorio JavaScript</h1>
+                        <p>Desarrollo de Software V</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="promedio.html"><i class="fas fa-calculator"></i> Promedio</a></li>
+                <li><a href="dia-semana.html"><i class="fas fa-calendar-day"></i> Día de la Semana</a></li>
+                <li><a href="compra.html"><i class="fas fa-shopping-cart"></i> Total Compra</a></li>
+                <li><a href="estudiantes.html"><i class="fas fa-user-graduate"></i> Promedio Estudiantes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Explora el Poder de JavaScript</h2>
+                <p>Bienvenido al laboratorio interactivo donde aprenderás los fundamentos de la programación con JavaScript a través de ejercicios prácticos y aplicaciones web dinámicas.</p>
+                <div class="hero-buttons">
+                    <a href="#conceptos" class="btn btn-primary">Aprender Conceptos</a>
+                    <a href="promedio.html" class="btn btn-secondary">Probar Ejercicios</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <i class="fas fa-calculator"></i>
+                <h3>Cálculos Automatizados</h3>
+                <p>Realiza operaciones matemáticas complejas de forma instantánea</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-check-circle"></i>
+                <h3>Validación de Datos</h3>
+                <p>Garantiza la integridad de la información ingresada por usuarios</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Interactividad</h3>
+                <p>Crea experiencias dinámicas que responden a las acciones del usuario</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Responsivo</h3>
+                <p>Funciona perfectamente en todos los dispositivos y navegadores</p>
+            </div>
+        </section>
+
+        <section id="conceptos" class="highlights">
+            <h2>Conceptos Fundamentales</h2>
+            <div class="highlight-grid">
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Programación Estructurada</h3>
+                    <p>Aprende a organizar tu código de manera lógica y mantenible utilizando funciones, condicionales y bucles.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h3>Manipulación del DOM</h3>
+                    <p>Descubre cómo JavaScript puede modificar dinámicamente el contenido y la apariencia de las páginas web.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Lógica de Programación</h3>
+                    <p>Desarrolla tu capacidad para resolver problemas mediante algoritmos y estructuras de datos básicas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="countdown">
+            <h2>Próximo Laboratorio en:</h2>
+            <div class="countdown-timer">
+                <div class="countdown-item">
+                    <span id="days">07</span>
+                    <p>Días</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">15</span>
+                    <p>Horas</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">23</span>
+                    <p>Minutos</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">45</span>
+                    <p>Segundos</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Laboratorio JavaScript</h3>
+                    <p>Desarrollo de Software V - Universidad Tecnológica</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-envelope"></i> desarrollo.v@utp.edu</p>
+                    <p><i class="fas fa-phone"></i> +123 456 7890</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Universidad Tecnológica - Desarrollo de Software V</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simulación de contador regresivo
+        let days = 7;
+        let hours = 15;
+        let minutes = 23;
+        let seconds = 45;
+        
+        const countdownFunction = setInterval(function() {
+            seconds--;
+            if (seconds < 0) {
+                seconds = 59;
+                minutes--;
+                if (minutes < 0) {
+                    minutes = 59;
+                    hours--;
+                    if (hours < 0) {
+                        hours = 23;
+                        days--;
+                        if (days < 0) {
+                            clearInterval(countdownFunction);
+                            document.getElementById("countdown").innerHTML = "¡El laboratorio ha comenzado!";
+                        }
+                    }
+                }
+            }
+            
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+        }, 1000);
+    </script>
+</body>
+</html>

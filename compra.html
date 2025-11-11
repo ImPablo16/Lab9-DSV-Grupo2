@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total de Compra - Laboratorio JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-code"></i>
+                    <div>
+                        <h1>Laboratorio JavaScript</h1>
+                        <p>Desarrollo de Software V</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="promedio.html"><i class="fas fa-calculator"></i> Promedio</a></li>
+                <li><a href="dia-semana.html"><i class="fas fa-calendar-day"></i> Día de la Semana</a></li>
+                <li><a href="compra.html" class="active"><i class="fas fa-shopping-cart"></i> Total Compra</a></li>
+                <li><a href="estudiantes.html"><i class="fas fa-user-graduate"></i> Promedio Estudiantes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Total de Compra en Supermercado</h2>
+                <p>Calcula el total a pagar por los productos de tu compra. Ingresa la cantidad de productos y luego el precio de cada uno.</p>
+                <div class="hero-buttons">
+                    <a href="#calculadora" class="btn btn-primary">Calcular Ahora</a>
+                    <a href="index.html" class="btn btn-secondary">Volver al Inicio</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+        </section>
+
+        <section id="calculadora" class="formulario-registro">
+            <h2>Calculadora de Compra</h2>
+            <p class="subtitle">Ingresa la cantidad de productos y luego el precio de cada uno</p>
+            
+            <div class="form-group">
+                <label for="cantidadProductos">¿Cuántos productos diferentes vas a pagar?</label>
+                <input type="number" id="cantidadProductos" min="1" max="50" placeholder="Ej: 5">
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="iniciarCompra()">
+                    <i class="fas fa-play"></i> Comenzar Compra
+                </button>
+                <button class="btn btn-danger" onclick="reiniciar()">
+                    <i class="fas fa-redo"></i> Reiniciar
+                </button>
+            </div>
+
+            <!-- Sección para ingresar precios de productos -->
+            <div id="seccionPrecios" style="display: none;">
+                <h3 style="color: var(--color-morado); margin: 2rem 0 1rem 0;">Ingresa los precios de los productos:</h3>
+                <div id="inputsPrecios"></div>
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="calcularTotal()">
+                        <i class="fas fa-calculator"></i> Calcular Total
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lista de productos ingresados -->
+            <div id="productosLista" class="productos-lista" style="display: none;">
+                <h3 style="color: var(--color-morado); margin-bottom: 1rem;">Productos ingresados:</h3>
+                <div id="listaProductos"></div>
+            </div>
+
+            <!-- Resultado del cálculo -->
+            <div id="resultadoCompra" class="resultado-compra">
+                <h3 style="color: var(--color-morado);">¡Compra calculada!</h3>
+                <div class="total-pagar" id="totalPagar">$0.00</div>
+                <p class="mensaje-exito">El total a pagar por tu compra es:</p>
+                <div class="button-group" style="justify-content: center; margin-top: 1.5rem;">
+                    <button class="btn btn-secondary" onclick="volverAlInicio()">
+                        <i class="fas fa-home"></i> Volver al Inicio
+                    </button>
+                    <button class="btn btn-primary" onclick="reiniciar()">
+                        <i class="fas fa-redo"></i> Nueva Compra
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="highlights">
+            <h2>¿Cómo funciona?</h2>
+            <div class="highlight-grid">
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-list"></i>
+                    </div>
+                    <h3>Paso 1</h3>
+                    <p>Ingresa la cantidad de productos diferentes que vas a comprar.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Paso 2</h3>
+                    <p>Introduce el precio de cada producto en los campos correspondientes.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Paso 3</h3>
+                    <p>Haz clic en "Calcular Total" para obtener el resultado automáticamente.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Laboratorio JavaScript</h3>
+                    <p>Desarrollo de Software V - Universidad Tecnológica</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-envelope"></i> desarrollo.v@utp.edu</p>
+                    <p><i class="fas fa-phone"></i> +123 456 7890</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Universidad Tecnológica - Desarrollo de Software V</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script-compra.js"></script>
+</body>
+</html>
