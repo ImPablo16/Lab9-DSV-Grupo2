@@ -456,6 +456,186 @@ footer {
     }
 }
 
+/* Estilos para estudiantes.html */
+.formulario-cantidad {
+    background-color: var(--color-blanco);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--sombra);
+    margin-bottom: 2rem;
+}
+
+.estudiante-card {
+    background-color: var(--color-blanco);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--sombra);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.estudiante-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-hover);
+}
+
+.estudiante-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.estudiante-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--color-menta), var(--color-morado));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.estudiante-icon i {
+    font-size: 1.5rem;
+    color: var(--color-blanco);
+}
+
+.campos-notas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.campo-nota {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo-nota label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--color-morado);
+}
+
+.campo-nota input {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.campo-nota input:focus {
+    outline: none;
+    border-color: var(--color-morado);
+    box-shadow: 0 0 0 2px rgba(142, 68, 173, 0.2);
+}
+
+.btn-calcular {
+    background-color: var(--color-menta);
+    color: var(--color-texto);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-calcular:hover {
+    background-color: var(--color-menta-oscuro);
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-hover);
+}
+
+.resultados-estudiantes {
+    margin-top: 2rem;
+}
+
+.resultado-card {
+    background: linear-gradient(135deg, var(--color-menta-claro), var(--color-menta));
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--sombra);
+    display: none;
+}
+
+.resultado-card.active {
+    display: block;
+}
+
+.resultado-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.resultado-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--color-morado), var(--color-morado-oscuro));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.resultado-icon i {
+    font-size: 1.5rem;
+    color: var(--color-blanco);
+}
+
+.promedio-valor {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-morado-oscuro);
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.estado-promedio {
+    text-align: center;
+    font-style: italic;
+    color: var(--color-texto-claro);
+}
+
+/* Responsive para estudiantes.html */
+@media (max-width: 768px) {
+    .campos-notas {
+        grid-template-columns: 1fr;
+    }
+    
+    .estudiante-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .estudiante-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .resultado-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .resultado-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .hero {
