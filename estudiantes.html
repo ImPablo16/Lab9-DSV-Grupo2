@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promedio de Estudiantes - Laboratorio JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-code"></i>
+                    <div>
+                        <h1>Laboratorio JavaScript</h1>
+                        <p>Desarrollo de Software V</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="promedio.html"><i class="fas fa-calculator"></i> Promedio</a></li>
+                <li><a href="dia-semana.html"><i class="fas fa-calendar-day"></i> Día de la Semana</a></li>
+                <li><a href="compra.html"><i class="fas fa-shopping-cart"></i> Total Compra</a></li>
+                <li><a href="estudiantes.html" class="active"><i class="fas fa-user-graduate"></i> Promedio Estudiantes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Promedio de Notas para N Estudiantes</h2>
+                <p>Calcula el promedio de dos notas para una cantidad N de estudiantes. Ingresa la cantidad de estudiantes y luego las notas de cada uno.</p>
+                <div class="hero-buttons">
+                    <a href="#calculadora" class="btn btn-primary">Comenzar</a>
+                    <a href="index.html" class="btn btn-secondary">Volver al Inicio</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-user-graduate"></i>
+            </div>
+        </section>
+
+        <section id="calculadora" class="formulario-registro">
+            <h2>Configuración Inicial</h2>
+            <p class="subtitle">Ingresa la cantidad de estudiantes para generar el formulario</p>
+            
+            <form id="cantidad-form" class="formulario-cantidad">
+                <div class="form-group">
+                    <label for="cantidad">Cantidad de estudiantes:</label>
+                    <input type="number" id="cantidad" name="cantidad" min="1" max="20" required placeholder="Ej: 3" />
+                </div>
+                <button type="submit" class="btn-registro">
+                    <i class="fas fa-users"></i> Generar Formulario
+                </button>
+            </form>
+
+            <div id="formulario-estudiantes" style="margin-top: 2rem;"></div>
+            
+            <div id="resultados" class="resultados-estudiantes"></div>
+        </section>
+
+        <section class="highlights">
+            <h2>¿Cómo funciona?</h2>
+            <div class="highlight-grid">
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Paso 1</h3>
+                    <p>Ingresa la cantidad de estudiantes para los que deseas calcular promedios.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3>Paso 2</h3>
+                    <p>Completa las dos notas para cada estudiante en los campos generados automáticamente.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Paso 3</h3>
+                    <p>Haz clic en "Calcular Promedio" para cada estudiante y ver los resultados.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Laboratorio JavaScript</h3>
+                    <p>Desarrollo de Software V - Universidad Tecnológica</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-envelope"></i> desarrollo.v@utp.edu</p>
+                    <p><i class="fas fa-phone"></i> +123 456 7890</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Universidad Tecnológica - Desarrollo de Software V</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script-estudiantes.js"></script>
+</body>
+</html>
