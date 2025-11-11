@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total de Compra - Supermercado</title>
+    <style>
+        /* Variables de colores */
+        :root {
+            --color-menta: #A2D9CE;
+            --color-menta-claro: #D1F2EB;
+            --color-menta-oscuro: #73C6B6;
+            --color-morado: #8E44AD;
+            --color-morado-claro: #BB8FCE;
+            --color-morado-oscuro: #6C3483;
+            --color-texto: #333;
+            --color-texto-claro: #555;
+            --color-blanco: #fff;
+            --color-gris: #f5f5f5;
+            --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --sombra-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--color-texto);
+            background-color: var(--color-gris);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--color-blanco);
+            border-radius: 12px;
+            box-shadow: var(--sombra);
+            padding: 2rem;
+            position: relative;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--color-menta);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--color-morado);
+        }
+
+        .logo h1 {
+            color: var(--color-morado-oscuro);
+            font-size: 2rem;
+        }
+
+        .subtitle {
+            color: var(--color-texto-claro);
+            font-size: 1.1rem;
+        }
+
+        /* Formulario */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--color-morado);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--color-morado);
+            box-shadow: 0 0 0 2px rgba(142, 68, 173, 0.2);
+        }
+
+        /* Botones */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--color-morado);
+            color: var(--color-blanco);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-morado-oscuro);
+            transform: translateY(-3px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .btn-secondary {
+            background-color: var(--color-menta);
+            color: var(--color-texto);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-menta-oscuro);
+            transform: translateY(-3px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .btn-danger {
+            background-color: #e74c3c;
+            color: var(--color-blanco);
+        }
+
+        .btn-danger:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .btn-menu {
+            background-color: var(--color-morado-claro);
+            color: var(--color-texto);
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .btn-menu:hover {
+            background-color: var(--color-morado);
+            color: var(--color-blanco);
+            transform: translateY(-3px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        /* Lista de productos */
+        .productos-lista {
+            margin: 2rem 0;
+        }
+
+        .producto-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: var(--color-menta-claro);
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .producto-item:hover {
+            background: var(--color-menta);
+            transform: translateX(5px);
+        }
+
+        .producto-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .producto-numero {
+            background: var(--color-morado);
+            color: var(--color-blanco);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* Resultado */
+        .resultado {
+            background: linear-gradient(135deg, var(--color-menta), var(--color-menta-claro));
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 2rem;
+            display: none;
+        }
+
+        .resultado.active {
+            display: block;
+        }
+
+        .total-pagar {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--color-morado-oscuro);
+            margin: 1rem 0;
+        }
+
+        .mensaje-exito {
+            color: var(--color-texto-claro);
+            font-size: 1.1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .logo {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .producto-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .total-pagar {
+                font-size: 2rem;
+            }
+
+            .btn-menu {
+                position: static;
+                margin-bottom: 1rem;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Botón Volver al Menú -->
+        <button class="btn btn-menu" onclick="volverAlMenu()">
+            ← Volver al Menú
+        </button>
+
+        <header>
+            <div class="logo">
+                <!-- Icono de carrito de compras -->
+                <i>🛒</i>
+                <h1>Supermercado Express</h1>
+            </div>
+            <p class="subtitle">Calcula el total de tu compra fácilmente</p>
+        </header>
+
+        <main>
+            <!-- Sección para ingresar cantidad de productos -->
+            <div class="form-group">
+                <label for="cantidadProductos">¿Cuántos productos diferentes vas a pagar?</label>
+                <input type="number" id="cantidadProductos" min="1" max="50" placeholder="Ej: 5">
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="iniciarCompra()">Comenzar Compra</button>
+                <button class="btn btn-danger" onclick="reiniciar()">Reiniciar</button>
+            </div>
+
+            <!-- Sección para ingresar precios de productos -->
+            <div id="seccionPrecios" style="display: none;">
+                <h3 style="color: var(--color-morado); margin: 2rem 0 1rem 0;">Ingresa los precios de los productos:</h3>
+                <div id="inputsPrecios"></div>
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="calcularTotal()">Calcular Total</button>
+                </div>
+            </div>
+
+            <!-- Lista de productos ingresados -->
+            <div id="productosLista" class="productos-lista" style="display: none;">
+                <h3 style="color: var(--color-morado); margin-bottom: 1rem;">Productos ingresados:</h3>
+                <div id="listaProductos"></div>
+            </div>
+
+            <!-- Resultado del cálculo -->
+            <div id="resultado" class="resultado">
+                <h3 style="color: var(--color-morado);">¡Compra calculada!</h3>
+                <div class="total-pagar" id="totalPagar">$0.00</div>
+                <p class="mensaje-exito">El total a pagar por tu compra es:</p>
+                <div class="button-group" style="justify-content: center; margin-top: 1.5rem;">
+                    <button class="btn btn-secondary" onclick="volverAlMenu()">Volver al Menú</button>
+                    <button class="btn btn-primary" onclick="reiniciar()">Nueva Compra</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Array para almacenar los precios de los productos
+        let precios = [];
+
+        // Función para volver al menú principal
+        function volverAlMenu() {
+            // Aquí puedes redirigir a la página principal o mostrar un mensaje
+            alert("Función: Volver al Menú Principal\n\nEn una aplicación real, esto redirigiría a la página principal del laboratorio.");
+            reiniciar();
+        }
+
+        // Función para iniciar la compra
+        function iniciarCompra() {
+            const cantidad = parseInt(document.getElementById('cantidadProductos').value);
+            
+            // Validar que se ingresó un número válido
+            if (isNaN(cantidad) || cantidad < 1 || cantidad > 50) {
+                alert("Por favor, ingresa un número válido entre 1 y 50");
+                return;
+            }
+
+            // Limpiar array de precios
+            precios = [];
+            
+            // Generar inputs para cada producto
+            const inputsPrecios = document.getElementById('inputsPrecios');
+            inputsPrecios.innerHTML = '';
+            
+            for (let i = 1; i <= cantidad; i++) {
+                const inputGroup = document.createElement('div');
+                inputGroup.className = 'form-group';
+                inputGroup.innerHTML = `
+                    <label for="producto${i}">Precio del producto ${i}:</label>
+                    <input type="number" id="producto${i}" step="0.01" min="0.01" placeholder="0.00" onchange="actualizarListaProductos()">
+                `;
+                inputsPrecios.appendChild(inputGroup);
+            }
+
+            // Mostrar sección de precios
+            document.getElementById('seccionPrecios').style.display = 'block';
+            document.getElementById('productosLista').style.display = 'block';
+        }
+
+        // Función para actualizar la lista de productos en tiempo real
+        function actualizarListaProductos() {
+            const listaProductos = document.getElementById('listaProductos');
+            listaProductos.innerHTML = '';
+            
+            const cantidad = parseInt(document.getElementById('cantidadProductos').value);
+            precios = [];
+            
+            for (let i = 1; i <= cantidad; i++) {
+                const precioInput = document.getElementById(`producto${i}`);
+                const precio = parseFloat(precioInput.value);
+                
+                if (!isNaN(precio) && precio > 0) {
+                    precios.push(precio);
+                    
+                    const productoItem = document.createElement('div');
+                    productoItem.className = 'producto-item';
+                    productoItem.innerHTML = `
+                        <div class="producto-info">
+                            <div class="producto-numero">${i}</div>
+                            <span>Producto ${i}</span>
+                        </div>
+                        <strong>$${precio.toFixed(2)}</strong>
+                    `;
+                    listaProductos.appendChild(productoItem);
+                }
+            }
+        }
+
+        // Función para calcular el total
+        function calcularTotal() {
+            // Recolectar precios
+            const cantidad = parseInt(document.getElementById('cantidadProductos').value);
+            precios = [];
+            
+            for (let i = 1; i <= cantidad; i++) {
+                const precioInput = document.getElementById(`producto${i}`);
+                const precio = parseFloat(precioInput.value);
+                
+                if (!isNaN(precio) && precio > 0) {
+                    precios.push(precio);
+                }
+            }
+
+            // Validar que se ingresaron todos los precios
+            if (precios.length !== cantidad) {
+                alert("Por favor, ingresa el precio para todos los productos");
+                return;
+            }
+
+            // Calcular total
+            const total = precios.reduce((sum, precio) => sum + precio, 0);
+            
+            // Mostrar resultado
+            document.getElementById('totalPagar').textContent = `$${total.toFixed(2)}`;
+            document.getElementById('resultado').classList.add('active');
+            
+            // Desplazarse al resultado
+            document.getElementById('resultado').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Función para reiniciar la aplicación
+        function reiniciar() {
+            document.getElementById('cantidadProductos').value = '';
+            document.getElementById('inputsPrecios').innerHTML = '';
+            document.getElementById('listaProductos').innerHTML = '';
+            document.getElementById('seccionPrecios').style.display = 'none';
+            document.getElementById('productosLista').style.display = 'none';
+            document.getElementById('resultado').classList.remove('active');
+            precios = [];
+        }
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("Aplicación de Supermercado cargada correctamente");
+        });
+    </script>
+</body>
+</html>
