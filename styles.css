@@ -636,6 +636,106 @@ footer {
     }
 }
 
+/* Estilos para dia-semana.html */
+.resultado-dia {
+    margin-top: 2rem;
+    text-align: center;
+    display: none;
+}
+
+.resultado-dia.active {
+    display: block;
+}
+
+.dia-card {
+    background: linear-gradient(135deg, var(--color-menta-claro), var(--color-menta));
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--sombra);
+    margin-bottom: 1.5rem;
+}
+
+.dia-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.dia-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.dia-icon i {
+    font-size: 2rem;
+    color: var(--color-blanco);
+}
+
+.dia-nombre {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--color-morado-oscuro);
+    margin: 1rem 0;
+}
+
+.dia-numero {
+    font-size: 1.2rem;
+    color: var(--color-texto-claro);
+    margin-bottom: 1rem;
+}
+
+.dia-descripcion {
+    font-style: italic;
+    color: var(--color-texto-claro);
+    margin-top: 1rem;
+}
+
+.error-mensaje {
+    background: linear-gradient(135deg, #FF6B6B, #EE5A52);
+    color: var(--color-blanco);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--sombra);
+    text-align: center;
+}
+
+.error-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Colores específicos para cada día */
+.dia-lunes { background: linear-gradient(135deg, #FF6B6B, #EE5A52); }
+.dia-martes { background: linear-gradient(135deg, #FF9FF3, #F368E0); }
+.dia-miercoles { background: linear-gradient(135deg, #FECA57, #FF9F43); }
+.dia-jueves { background: linear-gradient(135deg, #48DBFB, #0ABDE3); }
+.dia-viernes { background: linear-gradient(135deg, #1DD1A1, #10AC84); }
+.dia-sabado { background: linear-gradient(135deg, #54A0FF, #2E86DE); }
+.dia-domingo { background: linear-gradient(135deg, #5F27CD, #341F97); }
+
+/* Responsive para dia-semana.html */
+@media (max-width: 768px) {
+    .dia-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .dia-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .dia-nombre {
+        font-size: 2rem;
+    }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .hero {
