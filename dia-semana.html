@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Día de la Semana - Laboratorio JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-code"></i>
+                    <div>
+                        <h1>Laboratorio JavaScript</h1>
+                        <p>Desarrollo de Software V</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="promedio.html"><i class="fas fa-calculator"></i> Promedio</a></li>
+                <li><a href="dia-semana.html" class="active"><i class="fas fa-calendar-day"></i> Día de la Semana</a></li>
+                <li><a href="compra.html"><i class="fas fa-shopping-cart"></i> Total Compra</a></li>
+                <li><a href="estudiantes.html"><i class="fas fa-user-graduate"></i> Promedio Estudiantes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Identificación del Día de la Semana</h2>
+                <p>Ingresa un número del 1 al 7 para descubrir a qué día de la semana corresponde. Una herramienta simple pero útil para practicar estructuras condicionales en JavaScript.</p>
+                <div class="hero-buttons">
+                    <a href="#calculadora" class="btn btn-primary">Probar Ahora</a>
+                    <a href="index.html" class="btn btn-secondary">Volver al Inicio</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-calendar-day"></i>
+            </div>
+        </section>
+
+        <section id="calculadora" class="formulario-registro">
+            <h2>Identificador de Días</h2>
+            <p class="subtitle">Ingresa un número del 1 al 7 para conocer el día de la semana correspondiente</p>
+            
+            <div class="form-group">
+                <label for="numero">Número del día (1-7):</label>
+                <input type="number" id="numero" min="1" max="7" placeholder="Ej: 5" required>
+            </div>
+            
+            <button class="btn-registro" onclick="identificarDia()">
+                <i class="fas fa-search"></i> Identificar Día
+            </button>
+            
+            <div id="resultado" class="resultado-dia"></div>
+        </section>
+
+        <section class="highlights">
+            <h2>Días de la Semana</h2>
+            <div class="highlight-grid">
+                <div class="highlight-card">
+                    <div class="highlight-icon" style="background: linear-gradient(135deg, #FF6B6B, #EE5A52);">
+                        <i class="fas fa-1"></i>
+                    </div>
+                    <h3>Lunes</h3>
+                    <p>Día 1 - Inicio de la semana laboral</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon" style="background: linear-gradient(135deg, #FF9FF3, #F368E0);">
+                        <i class="fas fa-2"></i>
+                    </div>
+                    <h3>Martes</h3>
+                    <p>Día 2 - Continuamos con energía</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon" style="background: linear-gradient(135deg, #FECA57, #FF9F43);">
+                        <i class="fas fa-3"></i>
+                    </div>
+                    <h3>Miércoles</h3>
+                    <p>Día 3 - Mitad de semana</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon" style="background: linear-gradient(135deg, #48DBFB, #0ABDE3);">
+                        <i class="fas fa-4"></i>
+                    </div>
+                    <h3>Jueves</h3>
+                    <p>Día 4 - Casi llegando al fin</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon" style="background: linear-gradient(135deg, #1DD1A1, #10AC84);">
+                        <i class="fas fa-5"></i>
+                    </div>
+                    <h3>Viernes</h3>
+                    <p>Día 5 - ¡Viernes de alegría!</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon" style="background: linear-gradient(135deg, #54A0FF, #2E86DE);">
+                        <i class="fas fa-6"></i>
+                    </div>
+                    <h3>Sábado</h3>
+                    <p>Día 6 - Día de descanso</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon" style="background: linear-gradient(135deg, #5F27CD, #341F97);">
+                        <i class="fas fa-7"></i>
+                    </div>
+                    <h3>Domingo</h3>
+                    <p>Día 7 - Día de familia</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Laboratorio JavaScript</h3>
+                    <p>Desarrollo de Software V - Universidad Tecnológica</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-envelope"></i> desarrollo.v@utp.edu</p>
+                    <p><i class="fas fa-phone"></i> +123 456 7890</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Universidad Tecnológica - Desarrollo de Software V</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script-dia.js"></script>
+</body>
+</html>
